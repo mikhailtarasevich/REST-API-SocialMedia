@@ -3,7 +3,7 @@ package com.mikhail.tarasevich.socialmedia;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.mikhail.tarasevich.socialmedia")
 public class RestApiSocialMediaApplication {
 
     public static void main(String[] args) {
