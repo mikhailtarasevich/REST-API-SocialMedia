@@ -27,14 +27,6 @@ VALUES (1, 'First post', 'This is my first post.', '2023-05-26 09:45:00.184705')
        (4, 'Funny meme', 'This meme made me laugh so hard!', '2023-05-22 22:22:22.22'),
        (5, 'Travel memories', 'Throwback to my amazing trip last year.', '2023-05-22 23:22:22.22');
 
-INSERT INTO images (post_id, name, type, data)
-VALUES (1, 'image1.png', 'image/png', 87000),
-       (1, 'image2.png', 'image/png', 87001),
-       (3, 'image2.png', 'image/png', 87001),
-       (4, 'image3.png', 'image/png', 87001),
-       (5, 'image4.png', 'image/png', 87001),
-       (6, 'image5.png', 'image/png', 87000);
-
 INSERT INTO messages (from_user_id, to_user_id, message, created_at)
 VALUES (1, 2, 'Hey, how are you?', '2023-05-26 09:45:00.184705'),
        (2, 1, 'I''m good, thanks! How about you?', '2023-05-26 09:50:00.184705'),

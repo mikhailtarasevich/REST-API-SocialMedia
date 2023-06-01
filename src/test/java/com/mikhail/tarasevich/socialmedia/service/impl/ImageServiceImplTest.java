@@ -144,7 +144,7 @@ class ImageServiceImplTest {
     void downloadImage_existingImageId_returnImageData() {
 
         int imageId = 1;
-        byte[] imageData = {8,7,0,0,0};
+        byte[] imageData = {8, 7, 0, 0, 0};
 
         Image image = Image.builder()
                 .withId(imageId)
@@ -166,7 +166,7 @@ class ImageServiceImplTest {
 
         when(imageRepository.findById(imageId)).thenReturn(Optional.empty());
 
-        imageService.downloadImage(imageId);
+        assertThrows(IncorrectRequestDataException.class, () -> imageService.downloadImage(imageId));
 
         verify(imageRepository, times(1)).findById(imageId);
         verifyNoMoreInteractions(imageRepository);
