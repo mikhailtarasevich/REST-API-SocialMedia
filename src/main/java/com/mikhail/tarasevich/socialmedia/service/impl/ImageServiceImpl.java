@@ -73,7 +73,7 @@ public class ImageServiceImpl implements ImageService {
     public byte[] downloadImage(int id) {
 
         return imageRepository.findById(id).map(image -> ImageUtil.decompressImage(image.getData()))
-                .orElseThrow(() -> new IncorrectRequestDataException("There is no image with id = " + id));
+                .orElseThrow(() -> new IncorrectRequestDataException("There is no image with id = " + id + " in file repository"));
     }
 
     @Override

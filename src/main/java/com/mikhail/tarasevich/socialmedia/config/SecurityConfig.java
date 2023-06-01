@@ -14,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -25,6 +26,7 @@ public class SecurityConfig {
 
     private final UserDetailsService userDetailsService;
     private final JWTFilter jwtFilter;
+    private final AuthenticationEntryPoint entryPoint;
 
     private static final String[] AUTH_WHITELIST = {
             "/v2/api-docs",
@@ -39,9 +41,10 @@ public class SecurityConfig {
     };
 
     @Autowired
-    public SecurityConfig(UserDetailsService userDetailsService, JWTFilter jwtFilter) {
+    public SecurityConfig(UserDetailsService userDetailsService, JWTFilter jwtFilter, AuthenticationEntryPoint entryPoint) {
         this.userDetailsService = userDetailsService;
         this.jwtFilter = jwtFilter;
+        this.entryPoint = entryPoint;
     }
 
     @Bean
@@ -52,6 +55,9 @@ public class SecurityConfig {
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers("/api/v1/auth/registration", "/api/v1/auth/login").permitAll()
                 .anyRequest().authenticated()
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(entryPoint)
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
