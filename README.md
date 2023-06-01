@@ -12,7 +12,7 @@ execute the command:
 
     docker-compose up -d
 
-Open the link [http://localhost:8080](http://localhost:8888/swagger-ui/) in a web browser.
+Open the link [http://localhost:8888/swagger-ui/](http://localhost:8888/swagger-ui/) in a web browser.
 
 ## How to use the application.
 
@@ -20,7 +20,7 @@ To access the application, you need to go through authentication:
 
 Method 1:
 
-Go to the page [http://localhost:8080](http://localhost:8888/swagger-ui/):
+Go to the page [http://localhost:8888/swagger-ui/](http://localhost:8888/swagger-ui/):
 - Find AuthController
 - Send data to /api/v1/auth/login (data for login already in Swagger UI)
 - Receive a token in the response
@@ -34,7 +34,7 @@ Method 2:
 email": "john.smith@example.com", "password": 1111}"`
 
 - Receive a token in the response
-- Go to the page [http://localhost:8080](http://localhost:8888/swagger-ui/)
+- Go to the page [http://localhost:8888/swagger-ui/](http://localhost:8888/swagger-ui/)
 - Authorize Swagger by inserting the value "Bearer your-token" into the value field
 
 Access to all endpoints in the application is open.
